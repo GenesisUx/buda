@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Código Desbloqueable</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #hidden-image {
+      display: none;
+      width: 800px;
+      height: 800px;
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+    }
+    .message {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    #code-input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px; /* Margen superior entre la caja y el botón */
+    }
+  </style>
+</head>
+<body>
+  <h1>¡Descifra el Código!</h1>
+  <p class="message">Introduce el código correcto para desbloquear el contenido.</p>
+  <input type="text" id="code-input" placeholder="Ingresa el código">
+  <button onclick="checkCode()">Desbloquear</button>
+  <p id="result-message"></p>
+  <img id="hidden-image" src="budapest-express.png" alt="Contenido desbloqueado">
+  
+  <script>
+    function checkCode() {
+      const correctCode = "tren murder"; 
+      const userCode = document.getElementById("code-input").value;
+      const resultMessage = document.getElementById("result-message");
+      const hiddenImage = document.getElementById("hidden-image");
+
+      if (userCode === correctCode) {
+        resultMessage.textContent = "¡Felicidades! Han desbloqueado el contenido.";
+        hiddenImage.style.display = "block";
+      } else {
+        resultMessage.textContent = "El código es incorrecto. Inténtalo de nuevo.";
+        hiddenImage.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
